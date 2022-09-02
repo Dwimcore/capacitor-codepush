@@ -1,6 +1,6 @@
 {
   "name": "@dwimcore/capacitor-codepush",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "CodePush Plugin for Capacitor Forked from MAPIACOMPANY",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -30,10 +30,10 @@
   "license": "MIT",
   "devDependencies": {
     "@capacitor-community/http": "^1.0.0",
-    "@capacitor/cli": "^3.0.0",
-    "@capacitor/device": "^1.0.0",
-    "@capacitor/dialog": "^1.0.0",
-    "@capacitor/filesystem": "^1.0.0",
+    "@capacitor/cli": "^4.0.0",
+    "@capacitor/device": "^4.0.0",
+    "@capacitor/dialog": "^4.0.0",
+    "@capacitor/filesystem": "^4.0.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
@@ -70,10 +70,10 @@
   },
   "peerDependencies": {
     "@capacitor-community/http": "^1.0.0",
-    "@capacitor/core": "^3.0.0",
-    "@capacitor/device": "^1.0.0",
-    "@capacitor/dialog": "^1.0.0",
-    "@capacitor/filesystem": "^1.0.0"
+    "@capacitor/core": "^4.0.0",
+    "@capacitor/device": "^4.0.0",
+    "@capacitor/dialog": "^4.0.0",
+    "@capacitor/filesystem": "^4.0.0"
   },
   "capacitor": {
     "android": {
