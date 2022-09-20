@@ -44,11 +44,13 @@ export class CodePushUtil {
 
     /**
      * Logs the error to the console and then forwards it to the provided ErrorCallback, if any.
-     * TODO: remove me
      */
     public static invokeErrorCallback = (error: Error, errorCallback: ErrorCallback): void => {
+        if (errorCallback) {
+            return errorCallback(error);
+        }
+
         CodePushUtil.logError(null, error);
-        errorCallback && errorCallback(error);
     }
 
     /**

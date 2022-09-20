@@ -24,7 +24,6 @@ export declare class CodePushUtil {
     static getErrorMessage(e: Error | undefined): string;
     /**
      * Logs the error to the console and then forwards it to the provided ErrorCallback, if any.
-     * TODO: remove me
      */
     static invokeErrorCallback: (error: Error, errorCallback: ErrorCallback) => void;
     /**

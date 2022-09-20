@@ -56,11 +56,12 @@ var capacitorPlugin = (function (exports, acquisitionSdk, filesystem, core, http
     CodePushUtil.TAG = "[CodePush]";
     /**
      * Logs the error to the console and then forwards it to the provided ErrorCallback, if any.
-     * TODO: remove me
      */
     CodePushUtil.invokeErrorCallback = (error, errorCallback) => {
+        if (errorCallback) {
+            return errorCallback(error);
+        }
         CodePushUtil.logError(null, error);
-        errorCallback && errorCallback(error);
     };
     /**
      * Logs the error to the console and then throws the error.
