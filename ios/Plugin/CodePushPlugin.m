@@ -29,6 +29,4 @@ CAP_PLUGIN(CodePushPlugin, "CodePush",
            CAP_PLUGIN_METHOD(decodeSignature, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(getPublicKey, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(unzip, CAPPluginReturnPromise);
-           // FIXME: to remove when implemented in @capacitor/filesystem
-           CAP_PLUGIN_METHOD(downloadFile, CAPPluginReturnPromise);
 )
