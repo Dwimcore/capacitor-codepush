@@ -14,7 +14,6 @@ import { Package } from "./package";
 import { Sdk } from "./sdk";
 import { Directory, Filesystem } from "@capacitor/filesystem";
 import { FileUtil } from "./fileUtil";
-import { CodePush } from "./nativeCodePushPlugin";
 /**
  * Defines a remote package, which represents an update package available for download.
  */
@@ -51,11 +50,11 @@ export class RemotePackage extends Package {
                 if (yield FileUtil.fileExists(Directory.Data, file)) {
                     yield Filesystem.deleteFile({ directory: Directory.Data, path: file });
                 }
-                yield CodePush.downloadFile({
+                yield Filesystem.downloadFile({
                     url: this.downloadUrl,
                     method: "GET",
-                    filePath: file,
-                    fileDirectory: Directory.Data,
+                    path: file,
+                    directory: Directory.Data,
                     responseType: "blob"
                 });
             }

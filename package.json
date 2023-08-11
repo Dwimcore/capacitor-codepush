@@ -1,6 +1,6 @@
 {
   "name": "@dwimcore/capacitor-codepush",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "CodePush Plugin for Capacitor Forked from MAPIACOMPANY",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -29,13 +29,13 @@
   "author": "Robin Fournier <fournier.robin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^4.6.2",
-    "@capacitor/cli": "^4.6.2",
-    "@capacitor/core": "^4.6.2",
-    "@capacitor/device": "^4.1.0",
-    "@capacitor/dialog": "^4.1.0",
-    "@capacitor/filesystem": "^4.1.4",
-    "@capacitor/ios": "^4.6.2",
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/device": "^5.0.0",
+    "@capacitor/dialog": "^5.0.0",
+    "@capacitor/filesystem": "^5.0.0",
+    "@capacitor/ios": "^5.0.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
@@ -68,13 +68,13 @@
     "typescript": "~4.2.4"
   },
   "dependencies": {
-    "code-push": "4.0.5"
+    "code-push": "^4.1.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^4.0.0",
-    "@capacitor/device": "^4.0.0",
-    "@capacitor/dialog": "^4.0.0",
-    "@capacitor/filesystem": "^4.0.0"
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/device": "^5.0.0",
+    "@capacitor/dialog": "^5.0.0",
+    "@capacitor/filesystem": "^5.0.0"
   },
   "capacitor": {
     "android": {
