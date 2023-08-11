@@ -1,6 +1,5 @@
 package com.microsoft.capacitor;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.util.Base64;
@@ -11,8 +10,6 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-import com.microsoft.capacitor.http.FilesystemUtils;
-import com.microsoft.capacitor.http.HttpRequestHandler;
 import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
 import com.nimbusds.jwt.SignedJWT;
@@ -20,7 +17,6 @@ import com.nimbusds.jwt.SignedJWT;
 import org.json.JSONException;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.security.KeyFactory;
@@ -66,42 +62,6 @@ public class CodePush extends Plugin {
     @PluginMethod()
     public void getServerURL(PluginCall call) {
         this.returnStringPreference(SERVER_URL_PREFERENCE, call);
-    }
-
-    /* FIXME: to remove when implemented in @capacitor/filesystem (along with http submodule) */
-    @PluginMethod()
-    public void downloadFile(PluginCall call) {
-        try {
-            bridge.saveCall(call);
-            String fileDirectory = call.getString("fileDirectory", FilesystemUtils.DIRECTORY_DOCUMENTS);
-
-            if (!FilesystemUtils.isPublicDirectory(fileDirectory) || hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                call.release(bridge);
-
-                HttpRequestHandler.ProgressEmitter emitter = (bytes, contentLength) -> { /* no-op */ };
-                Boolean progress = call.getBoolean("progress", false);
-                if (progress) {
-                    emitter = (bytes, contentLength) -> {
-                        JSObject ret = new JSObject();
-                        ret.put("type", "DOWNLOAD");
-                        ret.put("url", call.getString("url"));
-                        ret.put("bytes", bytes);
-                        ret.put("contentLength", contentLength);
-
-                        notifyListeners("progress", ret);
-                    };
-                }
-
-                JSObject response = HttpRequestHandler.downloadFile(call, getContext(), emitter);
-                call.resolve(response);
-            }
-        } catch (MalformedURLException ex) {
-            call.reject("Invalid URL", ex);
-        } catch (IOException ex) {
-            call.reject("IO Error", ex);
-        } catch (Exception ex) {
-            call.reject("Error", ex);
-        }
     }
 
     private JSObject jsObjectValue(String value) {

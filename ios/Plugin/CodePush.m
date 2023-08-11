@@ -11,7 +11,6 @@
 #import "StatusReport.h"
 #import "UpdateHashUtils.h"
 #import "CodePushJWT.h"
-#import <DwimcoreCapacitorCodepush/DwimcoreCapacitorCodepush-Swift.h>
 
 
 
@@ -511,11 +510,6 @@ StatusReport* rollbackStatusReport = nil;
     } else {
         [call reject:@"Failed to unzip": nil : nil : @{}];
     }
-}
-
-
-- (void)downloadFile:(CAPPluginCall *)call {
-    [HttpBase downloadFile:call:self];
 }
 
 @end

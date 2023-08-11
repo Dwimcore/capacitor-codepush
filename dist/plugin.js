@@ -543,7 +543,7 @@ var capacitorPlugin = (function (exports, acquisitionSdk, filesystem, core, devi
                         serverUrl,
                         ignoreAppVersion: false,
                         appVersion,
-                        clientUniqueId: device$1.uuid
+                        clientUniqueId: device$1.identifier
                     };
                     if (deploymentKey) {
                         Sdk.DefaultAcquisitionManager = new acquisitionSdk.AcquisitionManager(new HttpRequester(), Sdk.DefaultConfiguration);
@@ -1112,11 +1112,11 @@ var capacitorPlugin = (function (exports, acquisitionSdk, filesystem, core, devi
                     if (yield FileUtil.fileExists(filesystem.Directory.Data, file)) {
                         yield filesystem.Filesystem.deleteFile({ directory: filesystem.Directory.Data, path: file });
                     }
-                    yield CodePush$1.downloadFile({
+                    yield filesystem.Filesystem.downloadFile({
                         url: this.downloadUrl,
                         method: "GET",
-                        filePath: file,
-                        fileDirectory: filesystem.Directory.Data,
+                        path: file,
+                        directory: filesystem.Directory.Data,
                         responseType: "blob"
                     });
                 }
