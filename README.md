@@ -6,6 +6,8 @@
 
 This plugin provides client-side integration for the [CodePush service](https://microsoft.github.io/code-push/), allowing you to easily add a dynamic update experience to your Capacitor app(s).
 
+__This package is now maintained [in my company's repo](https://github.com/iMattWeb/capacitor-codepush).__
+
 <!-- Capacitor Catalog -->
 
 * [How does it work?](#how-does-it-work)
